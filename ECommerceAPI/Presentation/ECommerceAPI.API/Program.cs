@@ -1,8 +1,6 @@
-using ECommerceAPI.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddPersistenceService();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
