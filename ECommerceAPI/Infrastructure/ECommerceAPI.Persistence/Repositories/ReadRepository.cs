@@ -24,7 +24,7 @@ namespace ECommerceAPI.Persistence.Repositories
 
         public IQueryable<T> GetAll() => Table;
 
-        public Task<T> GetByIdAsync(string id) => Table.FirstOrDefaultAsync(x => x.Id == Guid.Parse(id));
+        public async Task<T> GetByIdAsync(string id) => await Table.FindAsync(Guid.Parse(id)); //Marker Pattern: we can use id directly because BaseEntity has it=> Table.FirstOrDefaultAsync(x => x.Id == Guid.Parse(id));
 
         public async Task<T> GetSingleAsync(Expression<Func<T, bool>> method) => await Table.FirstOrDefaultAsync(method);
 
